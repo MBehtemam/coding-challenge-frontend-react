@@ -5,6 +5,7 @@
   "dependencies": {
     "eslint-plugin-jest": "^22.2.2",
     "eslint-plugin-styled-components": "0.0.0",
+    "eslint-plugin-styled-components-config": "0.0.2",
     "jest-styled-components": "^6.3.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",

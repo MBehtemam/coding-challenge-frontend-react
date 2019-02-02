@@ -8,7 +8,7 @@
     "jest/globals": true
   },
   "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier", "jest", "styled-components"],
+  "plugins": ["prettier", "jest", "styled-components-config"],
   "rules": {
     "prettier/prettier": ["error"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
