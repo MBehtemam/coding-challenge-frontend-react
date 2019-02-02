@@ -1,0 +1,22 @@
+{
+  "globals": {
+    "document": true,
+    "jest": true,
+    "window": true
+  },
+  "env": {
+    "jest/globals": true
+  },
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier", "jest", "styled-components"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+    "styled-components/rule-name": 2
+  }
+}

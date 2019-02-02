@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for Header Component Should correctly render header 1`] = `
+.c0 {
+  background-color: rgb(219,112,147);
+  height: 10vh;
+  color: white;
+  font-size: 3rem;
+}
+
+<header
+  className="c0"
+/>
+`;

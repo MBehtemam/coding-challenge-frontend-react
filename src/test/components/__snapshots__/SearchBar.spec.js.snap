@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test suits for SearchBar component should render correctly 1`] = `
+.c0 {
+  background-color: #950740;
+  height: 5vh;
+}
+
+<section
+  className="c0"
+/>
+`;
