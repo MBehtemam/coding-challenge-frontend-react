@@ -8,7 +8,7 @@
     "jest/globals": true
   },
   "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier", "jest"],
+  "plugins": ["prettier", "jest", "better-styled-components"],
   "rules": {
     "prettier/prettier": ["error"],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
@@ -16,6 +16,7 @@
     "jest/no-focused-tests": "error",
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
-    "jest/valid-expect": "error"
+    "jest/valid-expect": "error",
+    "better-styled-components/sort-declarations-alphabetically": 2
   }
 }

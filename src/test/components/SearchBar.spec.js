@@ -1,6 +1,6 @@
 import React from 'react';
-import SearchBar from '../../components/SearchBar';
 import renderer from 'react-test-renderer';
+import SearchBar from '../../components/SearchBar';
 import 'jest-styled-components';
 
 describe('Test suits for SearchBar component', () => {

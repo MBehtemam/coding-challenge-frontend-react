@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const Title = styled.a`
-  font-size: 2rem;
   color: blue;
+  font-size: 2rem;
 `;
 
 export default Title;

@@ -1,6 +1,6 @@
 import React from 'react';
-import Thumbnail from '../../components/BikeRow/Thumbnail';
 import renderer from 'react-test-renderer';
+import Thumbnail from '../../../components/BikeRow/Thumbnail';
 import 'jest-styled-components';
 
 describe('Test suits for Bike Thumbnail', () => {

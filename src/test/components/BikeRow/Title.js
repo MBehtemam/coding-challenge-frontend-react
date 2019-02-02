@@ -1,7 +1,7 @@
 import React from 'react';
 import 'jest-styled-components';
-import Title from '../../components/BikeRow/Title';
 import renderer from 'react-test-renderer';
+import Title from '../../../components/BikeRow/Title';
 
 describe('Test suits for Bike Row Title', () => {
   it('should render correctly', () => {
