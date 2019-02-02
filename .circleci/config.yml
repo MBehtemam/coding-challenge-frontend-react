@@ -46,13 +46,13 @@ jobs:
       - attach_workspace:
           at: .
       - run: npm run test
-  # lint:
-  #   <<: *defaults
-  #   steps:
-  #     - checkout
-  #     - attach_workspace:
-  #         at: .
-  #     - run: npm run lint
+  lint:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run: npm run lint
   deploy-github:
     <<: *defaults
     steps:
@@ -104,12 +104,12 @@ workflows:
   build_accept_deploy:
     jobs:
       - prepare
-      # - lint:
-      #     requires:
-      #       - prepare
+      - lint:
+          requires:
+            - prepare
       - build:
           requires:
-            # - lint
+            - lint
       - tu:
           requires:
             - build
