@@ -89,16 +89,16 @@ jobs:
   #             cd ..
   #             rm -rf gh-pages-branch
   #             echo "Finished GitHub pages Deployment!"
-  deploy-prod:
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - deploy:
-          name: Deploy to Production
-          command: |
-            echo "iooooooo"
+#   deploy-prod:
+#     <<: *defaults
+#     steps:
+#       - checkout
+#       - attach_workspace:
+#           at: .
+#       - deploy:
+#           name: Deploy to Production
+#           command: |
+#             echo "iooooooo"
 workflows:
   version: 2
   build_accept_deploy:
@@ -120,11 +120,11 @@ workflows:
       #       requires:
       #         - tu
       #         - e2e
-      - deploy-prod:
-          type: approval
-          requires:
-            - tu
-            - e2e
+    #   - deploy-prod:
+    #       type: approval
+    #       requires:
+    #         - tu
+    #         - e2e
 # version: 2
 # jobs:
 #   build:
