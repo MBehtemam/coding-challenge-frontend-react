@@ -1,4 +1,7 @@
+[![CircleCI](https://circleci.com/gh/MBehtemam/coding-challenge-frontend-react/tree/master.svg?style=svg)](https://circleci.com/gh/MBehtemam/coding-challenge-frontend-react/tree/master)
+
 # Stolen Bike Index - JOIN Coding Challenge - Frontend (React)
+
 ![JOIN Stolen Bike Cases](https://github.com/join-com/coding-challenge-frontend-react/raw/master/illustration.png)
 
 ## Context
