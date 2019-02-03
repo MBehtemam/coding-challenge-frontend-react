@@ -6,7 +6,7 @@ export default class Routes extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/" component={() => <span>Main</span>} />
+          <Route path="/" render={() => <span>Main</span>} />
           <Route path="/case/:id" component={() => <span>Detail</span>} />
         </Switch>
       </Router>
