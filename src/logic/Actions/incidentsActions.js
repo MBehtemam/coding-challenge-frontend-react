@@ -1,6 +1,6 @@
 import IncidentsAPI from '../API/IncidentsAPI';
 import { startLoading, stopLoading } from './loadingActions';
-
+import { incrementLastPageNumber, resetLastPageNumber } from './lastPageFetchNumberActions';
 import UrlGenerator from '../Helpers/UrlGenerator';
 import { INCIDENTS_CLEAR, INCIDENTS_ADD_BATCH } from '../Constants/ActionTypes';
 
@@ -17,14 +17,16 @@ export const getIncidents = () => {
     // start loading
     dispatch(startLoading());
     IncidentsAPI.getIncidents(
-      UrlGenerator({ page, perPage, occurredAfter, occurredBefore, query, proximity })
+      UrlGenerator({ page: page + 1, perPage, occurredAfter, occurredBefore, query, proximity })
     )
       .then(data => {
         // stop loading
         dispatch(stopLoading());
         // increment or set lastFetchPage
-
+        dispatch(incrementLastPageNumber());
         // adding bikes to list
+        // /TODO check for length of incidents
+        dispatch(addIncidents(data.incidents));
       })
       .catch(err => {
         dispatch(stopLoading());
