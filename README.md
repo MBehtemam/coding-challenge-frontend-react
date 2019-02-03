@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/MBehtemam/coding-challenge-frontend-react/tree/master.svg?style=svg)](https://circleci.com/gh/MBehtemam/coding-challenge-frontend-react/tree/master)
+[![Build Status](https://travis-ci.org/MBehtemam/coding-challenge-frontend-react.svg?branch=master)](https://travis-ci.org/MBehtemam/coding-challenge-frontend-react)
 
 # Stolen Bike Index - JOIN Coding Challenge - Frontend (React)
 
