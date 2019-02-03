@@ -4,8 +4,8 @@ import axios from 'axios';
  * this class contains static methods for fetching and sending queries and data
  * to server
  */
-export default class BikesAPI {
-  static getBikes(url) {
+export default class IncidentsAPI {
+  static getIncidents(url) {
     return axios
       .get(url)
       .then(response => response)

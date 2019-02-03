@@ -1,9 +1,9 @@
-import BikesAPI from '../API/BikesAPI';
+import IncidentsAPI from '../API/IncidentsAPI';
 import { startLoading, stopLoading } from './loadingActions';
 
 import UrlGenerator from '../Helpers/UrlGenerator';
 
-export const getBikes = () => {
+export const getIncidents = () => {
   return (dispatch, getState) => {
     const {
       lastPageFetchNumber: page,
@@ -15,7 +15,7 @@ export const getBikes = () => {
     } = getState();
     // start loading
     dispatch(startLoading());
-    BikesAPI.getBikes(
+    IncidentsAPI.getIncidents(
       UrlGenerator({ page, perPage, occurredAfter, occurredBefore, query, proximity })
     )
       .then(data => {
