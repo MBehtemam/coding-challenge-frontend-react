@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import 'jest-styled-components'
+import 'jest-styled-components';
 
 import Brand from './Brand';
 

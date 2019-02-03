@@ -1,8 +1,23 @@
 import IncidentsAPI from '../API/IncidentsAPI';
 import { startLoading, stopLoading } from './loadingActions';
-import { incrementLastPageNumber, resetLastPageNumber } from './lastPageFetchNumberActions';
+import { incrementLastPageNumber } from './lastPageFetchNumberActions';
 import UrlGenerator from '../Helpers/UrlGenerator';
 import { INCIDENTS_CLEAR, INCIDENTS_ADD_BATCH } from '../Constants/ActionTypes';
+
+/**
+ * this action clear all incidents
+ */
+export const clearIncidents = () => ({
+  type: INCIDENTS_CLEAR
+});
+/**
+ * this method get array of incidents and added it to list of incidents
+ * @param {Array} incidents arrays of incidents that we want to add it to list
+ */
+export const addIncidents = incidents => ({
+  type: INCIDENTS_ADD_BATCH,
+  payload: incidents
+});
 
 export const getIncidents = () => {
   return (dispatch, getState) => {
@@ -28,23 +43,8 @@ export const getIncidents = () => {
         // /TODO check for length of incidents
         dispatch(addIncidents(data.incidents));
       })
-      .catch(err => {
+      .catch(() => {
         dispatch(stopLoading());
       });
   };
 };
-
-/**
- * this action clear all incidents
- */
-export const clearIncidents = () => ({
-  type: INCIDENTS_CLEAR
-});
-/**
- * this method get array of incidents and added it to list of incidents
- * @param {Array} incidents arrays of incidents that we want to add it to list
- */
-export const addIncidents = incidents => ({
-  type: INCIDENTS_ADD_BATCH,
-  payload: incidents
-});

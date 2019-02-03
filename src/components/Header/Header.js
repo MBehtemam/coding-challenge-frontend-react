@@ -4,6 +4,7 @@ import Logo from './Logo';
 import Brand from './Brand';
 import BrandTitle from './BrandTitle';
 import BrandSubtitle from './BrandSubtitle';
+import LogoImage from '../../assets/logo.jpg';
 
 const Wrapper = styled.header`
   align-items: center;
@@ -15,7 +16,7 @@ const Wrapper = styled.header`
 
 const Header = () => (
   <Wrapper>
-    <Logo src={require('../../assets/logo.jpg')} />
+    <Logo src={LogoImage} />
     <Brand>
       <BrandTitle>Police Department of Berlin</BrandTitle>
       <BrandSubtitle>Stolen bykes</BrandSubtitle>
