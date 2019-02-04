@@ -6,7 +6,7 @@ import DatePicker from './components/DatePicker';
 import QueryInput from './components/QueryInput';
 import * as QueryActions from '../../logic/Actions/queryActions';
 import * as OccurredBeforeActions from '../../logic/Actions/occuredBeforeActions';
-import * as OccuredAfterActions from '../../logic/Actions/occuredAfterActions';
+import * as OccurredAfterActions from '../../logic/Actions/occuredAfterActions';
 import Button from '../Button';
 
 const Wrapper = styled.section`
@@ -36,7 +36,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setQuery: query => dispatch(QueryActions.setQuery(query)),
   setOccurredBefore: time => dispatch(OccurredBeforeActions.setOccurredBefore(time)),
-  setOccurredAfter: time => dispatch(OccuredAfterActions.setOccurredAfter(time))
+  setOccurredAfter: time => dispatch(OccurredAfterActions.setOccurredAfter(time))
 });
 export default connect(
   mapStateToProps,
@@ -57,5 +57,5 @@ SearchBar.defaultProps = {
   occurredBefore: 0,
   occurredAfter: 0,
   setOccurredBefore: OccurredBeforeActions.setOccurredBefore,
-  setOccurredAfter: OccuredAfterActions.setOccurredAfter
+  setOccurredAfter: OccurredAfterActions.setOccurredAfter
 };

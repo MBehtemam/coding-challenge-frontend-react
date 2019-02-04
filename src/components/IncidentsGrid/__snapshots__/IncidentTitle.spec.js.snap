@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test suits for Incident Title should match with snapshot 1`] = `
+.c0 {
+  color: blue;
+}
+
+<header
+  className="c0"
+>
+  <a
+    href="/case/null"
+    onClick={[Function]}
+  >
+    
+  </a>
+</header>
+`;
