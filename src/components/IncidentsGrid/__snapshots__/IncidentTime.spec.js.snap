@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test suits for Incident Time Should match to snapshot 1`] = `
+.c0 {
+  color: yellow;
+}
+
+<time
+  className="c0"
+>
+   datetime="2008-02-14 20:00"
+</time>
+`;
