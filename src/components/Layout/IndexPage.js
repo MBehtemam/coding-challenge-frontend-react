@@ -1,10 +1,37 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import SearchBar from '../SearchBar';
 import IncidentsGrid from '../IncidentsGrid';
-const IndexPage = () => (
-  <Fragment>
-    <SearchBar />
-    <IncidentsGrid />
-  </Fragment>
-);
-export default IndexPage;
+import * as IncidentsActions from '../../logic/Actions/incidentsActions';
+
+class IndexPage extends Component {
+  componentDidMount() {
+    this.props.getIncidents();
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <SearchBar />
+        <IncidentsGrid />
+      </Fragment>
+    );
+  }
+}
+
+IndexPage.propTypes = {
+  getIncidents: PropTypes.func
+};
+IndexPage.defaultProps = {
+  getIncidents: IncidentsActions.getIncidents
+};
+const mapDispatchToProps = dispatch => ({
+  getIncidents: () => {
+    dispatch(IncidentsActions.getIncidents());
+  }
+});
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(IndexPage);
