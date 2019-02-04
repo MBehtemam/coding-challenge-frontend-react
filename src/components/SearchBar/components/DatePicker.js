@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 const DatePicker = ({ title, date, onChagne }) => (
   <Wrapper>
     <span>{title}</span>
-    <Picker value={new Date(date)} onChange={d => onChagne(d.getTime())} />
+    <Picker clearIcon={null} value={new Date(date)} onChange={d => onChagne(d.getTime())} />
   </Wrapper>
 );
 
