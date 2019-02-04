@@ -18,7 +18,7 @@ const Header = () => (
   <Wrapper>
     <Logo src={LogoImage} />
     <Brand>
-      <BrandTitle>Police Department of Berlin</BrandTitle>
+      <BrandTitle>Something</BrandTitle>
       <BrandSubtitle>Stolen bykes</BrandSubtitle>
     </Brand>
   </Wrapper>

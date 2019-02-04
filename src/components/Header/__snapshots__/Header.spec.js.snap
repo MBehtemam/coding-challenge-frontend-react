@@ -57,7 +57,7 @@ exports[`Test suits for Header Component should match with snapshot 1`] = `
     <h1
       className="c3"
     >
-      Police Department of Berlin
+      Something
     </h1>
     <h3
       className="c4"
