@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import Picker from 'react-date-picker';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   display: flext;
   flex-direction: row;
 `;
+const Picker = styled.input`
+  color: red;
+`;
 
 const DatePicker = ({ title, date, onChange }) => (
   <Wrapper>
     <span>{title}</span>
-    <Picker value={date !== null ? date : new Date()} onChange={d => onChange(d.getTime())} />
+    <Picker value={date} type="date" onChange={e => onChange(new Date(e.target.value).getTime())} />
   </Wrapper>
 );
 
