@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test suits for Query Input it should match with snapshot 1`] = `
+.c0 {
+  background-color: red;
+}
+
+<input
+  className="c0"
+/>
+`;
