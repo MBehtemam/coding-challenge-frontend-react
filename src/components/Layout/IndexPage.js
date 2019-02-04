@@ -7,7 +7,8 @@ import * as IncidentsActions from '../../logic/Actions/incidentsActions';
 
 class IndexPage extends Component {
   componentDidMount() {
-    this.props.getIncidents();
+    const { getIncidents } = this.props;
+    getIncidents();
   }
 
   render() {

@@ -8,7 +8,7 @@ export default class IncidentsAPI {
   static getIncidents(url) {
     return axios
       .get(url)
-      .then(response => response)
+      .then(response => response.data)
       .catch(err => err);
   }
 }
