@@ -25,3 +25,5 @@ DatePicker.defaultProps = {
   date: null,
   onChange: null
 };
+
+export default DatePicker;
