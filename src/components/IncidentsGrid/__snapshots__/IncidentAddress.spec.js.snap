@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test suits for Incidetn Address should match with snapshot 1`] = `
+.c0 {
+  color: blue;
+}
+
+<address
+  className="c0"
+>
+  210 Berlin
+</address>
+`;
