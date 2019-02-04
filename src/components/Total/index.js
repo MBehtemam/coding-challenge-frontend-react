@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,7 +13,12 @@ const Total = ({ incidents }) => (
     <span>{incidents.length}</span>
   </Wrapper>
 );
-
+Total.propTypes = {
+  incidents: PropTypes.instanceOf(Array)
+};
+Total.defaultProps = {
+  incidents: []
+};
 const mapStateToProps = state => ({
   incidents: state.incidents
 });

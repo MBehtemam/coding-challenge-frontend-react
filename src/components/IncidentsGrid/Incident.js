@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import IncidentThumbnail from './IncidentThumbnail';
 import IncidentInfo from './IncidentInfo';
 
@@ -14,19 +15,33 @@ const Incident = ({
     title,
     description,
     address,
-    occurred_at,
-    media: { image_url_thumb }
+    occurred_at: occurredAt,
+    media: { image_url_thumb: imageUrlThumb }
   }
 }) => (
   <Wrapper>
-    <IncidentThumbnail src={image_url_thumb} />
+    <IncidentThumbnail src={imageUrlThumb} />
     <IncidentInfo
       id={id}
       title={title}
       description={description}
       address={address}
-      occurred_at={occurred_at}
+      occurredAt={occurredAt}
     />
   </Wrapper>
 );
+
+Incident.propTypes = {
+  incident: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    address: PropTypes.string,
+    occurredAt: PropTypes.string,
+    media: PropTypes.any
+  })
+};
+Incident.defaultProps = {
+  incident: {}
+};
 export default Incident;

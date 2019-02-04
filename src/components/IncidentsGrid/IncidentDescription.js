@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const IncidentDescription = styled.p`
-color:green;
-`
-export default IncidentDescription
+  color: green;
+`;
+export default IncidentDescription;

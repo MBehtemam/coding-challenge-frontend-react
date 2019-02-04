@@ -14,13 +14,13 @@ const WrapperRow = styled.div`
   display: flex;
   flex-direction: row;
 `;
-const IncidentInfo = ({ id, title, description, address, occurred_at }) => (
+const IncidentInfo = ({ id, title, description, address, occurredAt }) => (
   <Wrapper>
     <IncidentTitle title={title} id={id} />
     <IncidentDescription>{description}</IncidentDescription>
     <WrapperRow>
-      <IncidentTime datetime={new Date(occurred_at).toDateString()}>
-        {new Date(occurred_at).toDateString()}
+      <IncidentTime datetime={new Date(occurredAt).toDateString()}>
+        {new Date(occurredAt).toDateString()}
       </IncidentTime>
       <IncidentAddress>{address}</IncidentAddress>
     </WrapperRow>
@@ -31,6 +31,13 @@ IncidentInfo.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   address: PropTypes.string,
-  occured_at: PropTypes.number
+  occurredAt: PropTypes.number
+};
+IncidentInfo.defaultProps = {
+  id: 0,
+  title: '',
+  description: '',
+  address: '',
+  occurredAt: Date.now()
 };
 export default IncidentInfo;

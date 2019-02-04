@@ -21,14 +21,7 @@ export const addIncidents = incidents => ({
 
 export const getIncidents = () => {
   return (dispatch, getState) => {
-    const {
-      lastPageFetchNumber: page,
-      occurredAfter,
-      occurredBefore,
-      perPage,
-      proximity,
-      query
-    } = getState();
+    const { occurredAfter, occurredBefore, proximity, query } = getState();
     // start loading
     dispatch(startLoading());
     IncidentsAPI.getIncidents(

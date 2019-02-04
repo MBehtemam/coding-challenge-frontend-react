@@ -15,7 +15,7 @@ const IncidentTitle = ({ title, id }) => (
 
 export default IncidentTitle;
 
-IncidentTitle.props = {
+IncidentTitle.propTypes = {
   title: PropTypes.string,
   id: PropTypes.number
 };
