@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import DatePicker from 'react-date-picker';
 import QueryInput from './components/QueryInput';
-import DatePicker from './components/DatePicker';
 import * as QueryActions from '../../logic/Actions/queryActions';
 import * as OccurredBeforeActions from '../../logic/Actions/occuredBeforeActions';
 
@@ -15,7 +15,7 @@ const Wrapper = styled.section`
 const SearchBar = ({ setQuery, query, occurredBefore, setOccurredBefore }) => (
   <Wrapper>
     <QueryInput onBlur={e => setQuery(e.target.value)} defaultValue={query} />
-    <DatePicker title="From" date={occurredBefore} onChange={t => setOccurredBefore(t)} />
+    <DatePicker value={new Date(occurredBefore)} />
   </Wrapper>
 );
 const mapStateToProps = state => ({
@@ -34,12 +34,12 @@ export default connect(
 SearchBar.propTypes = {
   setQuery: PropTypes.func,
   query: PropTypes.string,
-  occurredBefore: PropTypes.number,
+  occurredBefore: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   setOccurredBefore: PropTypes.func
 };
 SearchBar.defaultProps = {
   query: '',
   setQuery: QueryActions.setQuery,
-  occurredBefore: null,
+  occurredBefore: '',
   setOccurredBefore: OccurredBeforeActions.setOccurredBefore
 };

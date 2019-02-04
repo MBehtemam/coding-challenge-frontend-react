@@ -6,7 +6,7 @@ describe('Test suits for Occurred before reducer', () => {
     expect(occurredAfterReducer(undefined, {})).toBe(defaultState);
   });
   it('should clear the state and return default state', () => {
-    expect(occurredAfterReducer(1549176153605, { type: OCCURRED_AFTER_CLEAR })).toBe(null);
+    expect(occurredAfterReducer(1549176153605, { type: OCCURRED_AFTER_CLEAR })).toBe(defaultState);
   });
   it('should set new state', () => {
     expect(

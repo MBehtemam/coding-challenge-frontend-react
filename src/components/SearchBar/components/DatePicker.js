@@ -10,22 +10,26 @@ const Picker = styled.input`
   color: red;
 `;
 
-const DatePicker = ({ title, date, onChange }) => (
+const DatePicker = ({ title, date, dateChange }) => (
   <Wrapper>
     <span>{title}</span>
-    <Picker value={date} type="date" onChange={e => onChange(new Date(e.target.value).getTime())} />
+    <Picker
+      value={date !== '' ? new Date(date) : ''}
+      type="date"
+      onChange={e => dateChange(new Date(e.target.value).getTime())}
+    />
   </Wrapper>
 );
 
 DatePicker.propTypes = {
   title: PropTypes.string,
-  date: PropTypes.oneOfType([PropTypes.number, PropTypes.any]),
-  onChange: PropTypes.func
+  date: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  dateChange: PropTypes.func
 };
 DatePicker.defaultProps = {
   title: 'from',
   date: null,
-  onChange: null
+  dateChange: null
 };
 
 export default DatePicker;
