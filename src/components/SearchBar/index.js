@@ -2,20 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import DatePicker from 'react-date-picker';
+import DatePicker from './components/DatePicker';
 import QueryInput from './components/QueryInput';
 import * as QueryActions from '../../logic/Actions/queryActions';
 import * as OccurredBeforeActions from '../../logic/Actions/occuredBeforeActions';
 
 const Wrapper = styled.section`
   display: flex;
-  min-height: 100px;
 `;
 
 const SearchBar = ({ setQuery, query, occurredBefore, setOccurredBefore }) => (
   <Wrapper>
     <QueryInput onBlur={e => setQuery(e.target.value)} defaultValue={query} />
-    <DatePicker value={new Date(occurredBefore)} />
+    <DatePicker date={occurredBefore} title="From" onChagne={setOccurredBefore} />
   </Wrapper>
 );
 const mapStateToProps = state => ({

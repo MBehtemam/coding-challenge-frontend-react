@@ -1,35 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
+import Picker from 'react-date-picker';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   display: flext;
   flex-direction: row;
 `;
-const Picker = styled.input`
-  color: red;
-`;
 
-const DatePicker = ({ title, date, dateChange }) => (
+const DatePicker = ({ title, date, onChagne }) => (
   <Wrapper>
     <span>{title}</span>
-    <Picker
-      value={date !== '' ? new Date(date) : ''}
-      type="date"
-      onChange={e => dateChange(new Date(e.target.value).getTime())}
-    />
+    <Picker value={new Date(date)} onChange={d => onChagne(d.getTime())} />
   </Wrapper>
 );
 
 DatePicker.propTypes = {
   title: PropTypes.string,
   date: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  dateChange: PropTypes.func
+  onChagne: PropTypes.func
 };
 DatePicker.defaultProps = {
   title: 'from',
   date: null,
-  dateChange: null
+  onChagne: null
 };
 
 export default DatePicker;
