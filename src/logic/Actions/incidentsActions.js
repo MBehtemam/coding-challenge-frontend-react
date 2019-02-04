@@ -32,7 +32,15 @@ export const getIncidents = () => {
     // start loading
     dispatch(startLoading());
     IncidentsAPI.getIncidents(
-      UrlGenerator({ page: page + 1, perPage, occurredAfter, occurredBefore, query, proximity })
+      UrlGenerator({
+        page: 1,
+        perPage: 1000,
+        occurredAfter,
+        occurredBefore,
+        query,
+        proximity,
+        proximitySquare: 100
+      })
     )
       .then(data => {
         // stop loading
