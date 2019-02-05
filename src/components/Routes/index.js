@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import IndexPage from '../Layout/IndexPage';
+import IndexPage from '../Pages/IndexPage';
+import IncidentDetailPage from '../Pages/IncidentDetailPage';
 
 const Routes = () => (
   <Router>
     <Switch>
       <Route exact path="/page/:page" component={IndexPage} />
-      <Route exact path="/case/:id" component={() => <span>Detail</span>} />
+      <Route exact path="/case/:id" component={IncidentDetailPage} />
       <Redirect path="/" to="/page/1" />
     </Switch>
   </Router>
