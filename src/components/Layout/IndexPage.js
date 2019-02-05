@@ -5,7 +5,7 @@ import SearchBar from '../SearchBar';
 import IncidentsGrid from '../IncidentsGrid';
 import * as IncidentsActions from '../../logic/Actions/incidentsActions';
 import Total from '../Total';
-import Pagination from '../Pagination/';
+import Pagination from '../Pagination';
 
 class IndexPage extends Component {
   componentDidMount() {
