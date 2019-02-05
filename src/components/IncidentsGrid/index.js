@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import Incident from './Incident';
 
 const Wrapper = styled.section`
@@ -16,8 +17,11 @@ const Grid = ({ incidents }) => (
     ))}
   </Wrapper>
 );
-const mapStateToProps = state => ({
-  incidents: state.incidents
+const mapStateToProps = (state, ownProps) => ({
+  incidents: state.incidents.slice(
+    (ownProps.match.params.page - 1) * state.perPage,
+    ownProps.match.params.page * state.perPage
+  )
 });
 Grid.propTypes = {
   incidents: PropTypes.instanceOf(Array)
@@ -25,7 +29,9 @@ Grid.propTypes = {
 Grid.defaultProps = {
   incidents: []
 };
-export default connect(
-  mapStateToProps,
-  undefined
-)(Grid);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    undefined
+  )(Grid)
+);

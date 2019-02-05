@@ -5,9 +5,9 @@ import IndexPage from '../Layout/IndexPage';
 const Routes = () => (
   <Router>
     <Switch>
-      <Redirect exact path="/" to="/page/1" />
-      <Route path="/page/:page" render={() => <IndexPage />} />
-      <Route path="/case/:id" component={() => <span>Detail</span>} />
+      <Route exact path="/page/:page" component={IndexPage} />
+      <Route exact path="/case/:id" component={() => <span>Detail</span>} />
+      <Redirect path="/" to="/page/1" />
     </Switch>
   </Router>
 );
