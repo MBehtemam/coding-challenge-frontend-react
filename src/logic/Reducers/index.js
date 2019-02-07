@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import incidents from './incidentsReducer';
 import lastPageFetchNumber from './lastPageFetchNumberReducer';
 import loading from './loadingReducer';
+import locationsLoading from './locationsLoadingReducer';
 import occurredAfter from './occurredAfter';
 import occurredBefore from './occurredBefore';
 import perPage from './perPageReducer';
@@ -16,6 +17,7 @@ const reducers = combineReducers({
   occurredBefore,
   perPage,
   proximity,
-  query
+  query,
+  locationsLoading
 });
 export default reducers;
