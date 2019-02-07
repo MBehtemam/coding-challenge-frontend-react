@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactGoogleMap from 'react-google-maps';
+// import ReactGoogleMap from 'react-google-maps';
 
-const Map = () => <ReactGoogleMap />;
+const Map = () => <span>Map</span>;
 export default Map;
