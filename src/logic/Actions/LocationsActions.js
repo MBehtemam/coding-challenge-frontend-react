@@ -40,6 +40,6 @@ export const getLocations = () => {
       .then(locations => {
         dispatch(setLocation(locations.features));
       })
-      .catch(err => {});
+      .catch(err => err);
   };
 };
