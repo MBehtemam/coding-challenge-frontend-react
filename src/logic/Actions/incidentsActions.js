@@ -1,7 +1,7 @@
 import IncidentsAPI from '../API/IncidentsAPI';
 import { startLoading, stopLoading } from './loadingActions';
 import { incrementLastPageNumber } from './lastPageFetchNumberActions';
-import UrlGenerator from '../Helpers/UrlGenerator';
+import IncidentsUrlGenerator from '../Helpers/IncidentsUrlGenerator';
 import { INCIDENTS_CLEAR, INCIDENTS_ADD_BATCH } from '../Constants/ActionTypes';
 
 /**
@@ -25,7 +25,7 @@ export const getIncidents = () => {
     // start loading
     dispatch(startLoading());
     IncidentsAPI.getIncidents(
-      UrlGenerator({
+      IncidentsUrlGenerator({
         page: 1,
         perPage: 1000,
         occurredAfter,
