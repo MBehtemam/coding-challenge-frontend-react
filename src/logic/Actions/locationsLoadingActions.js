@@ -3,13 +3,13 @@ import { LOADING_LOCATIONS_START, LOADING_LOCATIONS_STOP } from '../Constants/Ac
 /**
  * this actions start loading for fetching locations
  */
-export const locationsLoadingStart = () => ({
+export const startLocationsLoading = () => ({
   type: LOADING_LOCATIONS_START
 });
 
 /**
  * this method stop loading for fetching locations
  */
-export const locationsLoadingStop = () => ({
+export const stopLocationsLoading = () => ({
   type: LOADING_LOCATIONS_STOP
 });

@@ -5,6 +5,7 @@ import {
 } from '../Constants/ActionTypes';
 import LocationsAPI from '../API/LocationsAPI';
 import LocationsUrlGenerator from '../Helpers/LocationsUrlGenerator';
+import { startLocationsLoading, stopLocationsLoading } from './locationsLoadingActions';
 /**
  * this action get array of locations and append it to state
  * @param {Array} locations list of locations to add
@@ -33,13 +34,17 @@ export const clearLocation = () => ({
 export const getLocations = () => {
   return (dispatch, getState) => {
     const { occurredAfter, occurredBefore, incidentType, proximity, query } = getState();
+    dispatch(startLocationsLoading());
     dispatch(clearLocation());
     LocationsAPI.getLocations(
       LocationsUrlGenerator({ occurredAfter, occurredBefore, incidentType, proximity, query })
     )
       .then(locations => {
+        dispatch(stopLocationsLoading());
         dispatch(setLocation(locations.features));
       })
-      .catch(err => err);
+      .catch(() => {
+        dispatch(stopLocationsLoading());
+      });
   };
 };
