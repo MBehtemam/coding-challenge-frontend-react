@@ -4,8 +4,8 @@ import axios from 'axios';
  * this class contains static methods for fetching and sending queries and data
  * to server
  */
-export default class IncidentsAPI {
-  static async getIncidents(url) {
+export default class LocationsAPI {
+  static async getLocations(url) {
     try {
       const response = await axios.get(url);
       return response.data;
