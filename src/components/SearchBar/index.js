@@ -8,6 +8,7 @@ import * as QueryActions from '../../logic/Actions/queryActions';
 import * as OccurredBeforeActions from '../../logic/Actions/occuredBeforeActions';
 import * as OccurredAfterActions from '../../logic/Actions/occuredAfterActions';
 import Button from '../Button';
+import fetchingActions from '../../logic/Actions/fetchingActions'
 
 const Wrapper = styled.section`
   display: flex;
@@ -19,21 +20,24 @@ const SearchBar = ({
   occurredBefore,
   setOccurredBefore,
   setOccurredAfter,
-  occurredAfter
+  occurredAfter,
+  fetchingActions
 }) => (
   <Wrapper>
     <QueryInput onBlur={e => setQuery(e.target.value)} defaultValue={query} />
-    <DatePicker date={occurredBefore} title="From" onChagne={setOccurredBefore} />
-    <DatePicker date={occurredAfter} title="To" onChagne={setOccurredAfter} />
+    <DatePicker date={occurredBefore} title="From" onChange={setOccurredBefore} />
+    <DatePicker date={occurredAfter} title="To" onChange={setOccurredAfter} />
     <Button>Clear</Button>
-    <Button>Apply</Button>
+    <Button onClick={fetchingActions}>Apply</Button>
   </Wrapper>
 );
 const mapStateToProps = state => ({
   query: state.query,
-  occurredBefore: state.occurredBefore
+  occurredBefore: state.occurredBefore,
+  occurredAfter:state.occurredAfter
 });
 const mapDispatchToProps = dispatch => ({
+  fetchingActions:()=>dispatch(fetchingActions(true,1)),
   setQuery: query => dispatch(QueryActions.setQuery(query)),
   setOccurredBefore: time => dispatch(OccurredBeforeActions.setOccurredBefore(time)),
   setOccurredAfter: time => dispatch(OccurredAfterActions.setOccurredAfter(time))
@@ -44,6 +48,7 @@ export default connect(
 )(SearchBar);
 
 SearchBar.propTypes = {
+  fetchingActions:PropTypes.func,
   setQuery: PropTypes.func,
   query: PropTypes.string,
   occurredBefore: PropTypes.number,
@@ -57,5 +62,6 @@ SearchBar.defaultProps = {
   occurredBefore: 0,
   occurredAfter: 0,
   setOccurredBefore: OccurredBeforeActions.setOccurredBefore,
-  setOccurredAfter: OccurredAfterActions.setOccurredAfter
+  setOccurredAfter: OccurredAfterActions.setOccurredAfter,
+  fetchingActions:fetchingActions
 };

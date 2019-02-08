@@ -19,7 +19,7 @@ const fetchResults = (reload = false, page = 1) => {
       // check if we have page with incidents, so we don't request server
     } else if (!hasPage) {
       dispatch(getIncidents(page));
-      if (locations.length) {
+      if (locations.length === 0) {
         dispatch(getLocations());
       }
     }
