@@ -18,10 +18,10 @@ const Grid = ({ incidents }) => (
   </Wrapper>
 );
 const mapStateToProps = (state, ownProps) => ({
-  incidents: state.incidents.slice(
-    (ownProps.match.params.page - 1) * state.perPage,
-    ownProps.match.params.page * state.perPage
-  )
+  incidents:
+    state.incidents[
+      Object.keys(state.incidents).find(p => p === `p${ownProps.match.params.page}`)
+    ] || []
 });
 Grid.propTypes = {
   incidents: PropTypes.instanceOf(Array)

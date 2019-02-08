@@ -2,10 +2,12 @@ import { resetLastPageNumber } from './lastPageFetchNumberActions';
 import { clearIncidents, getIncidents } from './incidentsActions';
 import { clearLocations, getLocations } from './LocationsActions';
 
-export const fetchResults = (reload = false, page = 1) => {
+const fetchResults = (reload = false, page = 1) => {
   return (dispatch, getState) => {
-    const { lastPageFetchNumber } = getState();
+    const { incidents, locations } = getState();
+    const hasPage = Object.keys(incidents).find(p => p === `p${page}`);
     if (reload) {
+      // removing all unwanted and resetting states
       Promise.all([
         dispatch(resetLastPageNumber()),
         dispatch(clearIncidents()),
@@ -14,9 +16,13 @@ export const fetchResults = (reload = false, page = 1) => {
         dispatch(getIncidents(1));
         dispatch(getLocations());
       });
-    } else if (page > lastPageFetchNumber) {
+      // check if we have page with incidents, so we don't request server
+    } else if (!hasPage) {
       dispatch(getIncidents(page));
-      dispatch(getLocations());
+      if (locations.length) {
+        dispatch(getLocations());
+      }
     }
   };
 };
+export default fetchResults;

@@ -13,4 +13,16 @@ export default class IncidentsAPI {
       return err;
     }
   }
+
+  /**
+   * this method ge an incident id and return it
+   */
+  static async getIncident(id) {
+    try {
+      const response = await axios.get(`https://bikewise.org:443/api/v2/incidents/${id}`);
+      return response.data;
+    } catch (err) {
+      return err;
+    }
+  }
 }
