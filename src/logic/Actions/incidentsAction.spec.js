@@ -7,8 +7,8 @@ describe('Test suits for incidents actions', () => {
     expect(clearIncidents()).toEqual(expectedObj);
   });
   it('should has correct type and payload', () => {
-    const payload = [1, 2, 3];
+    const payload = { pageId: 3, incidents: [1, 2, 3] };
     const expectedObj = { type: INCIDENTS_ADD_BATCH, payload };
-    expect(addIncidents(payload)).toEqual(expectedObj);
+    expect(addIncidents(payload.incidents, payload.pageId)).toEqual(expectedObj);
   });
 });

@@ -1,18 +1,24 @@
 import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import SearchBar from '../SearchBar';
 import IncidentsGrid from '../IncidentsGrid';
-import * as IncidentsActions from '../../logic/Actions/incidentsActions';
+import * as FetchResults from '../../logic/Actions/fetchingActions';
 import Total from '../Total';
 import Pagination from '../Pagination';
 
 class IndexPage extends Component {
   componentDidMount() {
-    const { getIncidents } = this.props;
-    getIncidents();
+    const { fetchResults } = this.props;
+    fetchResults(false, this.props.match.params.page);
   }
-
+  componentDidUpdate(prevProps){
+    const { fetchResults } = this.props;
+    if(prevProps.match.params.page !== this.props.match.params.page){
+    fetchResults(false, this.props.match.params.page);
+    }
+  }
   render() {
     return (
       <Fragment>
@@ -26,17 +32,19 @@ class IndexPage extends Component {
 }
 
 IndexPage.propTypes = {
-  getIncidents: PropTypes.func
+  fetchResults: PropTypes.func
 };
 IndexPage.defaultProps = {
-  getIncidents: IncidentsActions.getIncidents
+  fetchResults: FetchResults.fetchResults
 };
 const mapDispatchToProps = dispatch => ({
-  getIncidents: () => {
-    dispatch(IncidentsActions.getIncidents());
+  fetchResults: (reload, page) => {
+    dispatch(FetchResults.fetchResults(reload, page));
   }
 });
-export default connect(
-  undefined,
-  mapDispatchToProps
-)(IndexPage);
+export default withRouter(
+  connect(
+    undefined,
+    mapDispatchToProps
+  )(IndexPage)
+);

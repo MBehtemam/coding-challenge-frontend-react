@@ -11,23 +11,24 @@ export const clearIncidents = () => ({
   type: INCIDENTS_CLEAR
 });
 /**
- * this method get array of incidents and added it to list of incidents
+ * this method get array of incidents and added it to list of incidents and a unique id of defining page id
  * @param {Array} incidents arrays of incidents that we want to add it to list
+ * @param {Number} pageId unique page id that indicate page number
  */
-export const addIncidents = incidents => ({
+export const addIncidents = (incidents, pageId) => ({
   type: INCIDENTS_ADD_BATCH,
-  payload: incidents
+  payload: { incidents, pageId }
 });
 
-export const getIncidents = () => {
+export const getIncidents = (page = 1) => {
   return (dispatch, getState) => {
-    const { occurredAfter, occurredBefore, proximity, query } = getState();
+    const { occurredAfter, occurredBefore, proximity, query, perPage } = getState();
     // start loading
     dispatch(startLoading());
     IncidentsAPI.getIncidents(
       IncidentsUrlGenerator({
-        page: 1,
-        perPage: 1000,
+        page,
+        perPage,
         occurredAfter,
         occurredBefore,
         query,
@@ -42,7 +43,7 @@ export const getIncidents = () => {
         dispatch(incrementLastPageNumber());
         // adding bikes to list
         // /TODO check for length of incidents
-        dispatch(addIncidents(data.incidents));
+        dispatch(addIncidents(data.incidents, page));
       })
       .catch(() => {
         dispatch(stopLoading());

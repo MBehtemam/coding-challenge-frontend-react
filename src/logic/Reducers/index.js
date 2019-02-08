@@ -8,6 +8,7 @@ import occurredBefore from './occurredBefore';
 import perPage from './perPageReducer';
 import proximity from './proximityReducer';
 import query from './queryReducer';
+import locations from './locationsReducer';
 
 const reducers = combineReducers({
   incidents,
@@ -18,6 +19,7 @@ const reducers = combineReducers({
   perPage,
   proximity,
   query,
-  locationsLoading
+  locationsLoading,
+  locations
 });
 export default reducers;

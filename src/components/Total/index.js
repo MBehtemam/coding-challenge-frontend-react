@@ -8,19 +8,19 @@ const Wrapper = styled.div`
   flex-direction: row;
   justify-content: flex-end;
 `;
-const Total = ({ incidents }) => (
+const Total = ({ incidentsCount }) => (
   <Wrapper>
-    <span>{incidents.length}</span>
+    <span>{incidentsCount}</span>
   </Wrapper>
 );
 Total.propTypes = {
-  incidents: PropTypes.instanceOf(Array)
+  incidentsCount: PropTypes.number
 };
 Total.defaultProps = {
-  incidents: []
+  incidentsCount: 0
 };
 const mapStateToProps = state => ({
-  incidents: state.incidents
+  incidentsCount: state.locations.length
 });
 export default connect(
   mapStateToProps,
