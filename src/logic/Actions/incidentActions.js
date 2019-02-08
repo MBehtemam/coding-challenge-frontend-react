@@ -26,8 +26,8 @@ export const fetchIncident = id => {
         dispatch(setIncident(result.incident));
         dispatch(incidentStopLoading());
       })
-      .catch(err => {
-        dispatch(incidentFetchFail(err.error));
+      .catch(() => {
+        dispatch(incidentFetchFail('Error Happen'));
       });
   };
 };

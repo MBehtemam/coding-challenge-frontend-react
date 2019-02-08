@@ -9,6 +9,13 @@ describe('Test suits for incident status', () => {
   it('should return default state on initializing', () => {
     expect(incidentStatusReducer(undefined, {})).toEqual(defaultState);
   });
+  it('should stop loading', () => {
+    const expected = {
+      ...defaultState,
+      loading: false
+    };
+    expect(incidentStatusReducer(undefined, { type: INCIDENT_LOADING_STOPT })).toEqual(expected);
+  });
   it('should has loading true when it is started', () => {
     const expected = {
       ...defaultState,
