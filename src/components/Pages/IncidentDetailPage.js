@@ -28,30 +28,20 @@ class IncidentDetailPage extends Component {
     return (
       <>
         {incidentStatus.loading && <span>Loading</span>}
-        {incidentStatus.ok === 1 && Object.keys(incident).length && (
-          <Wrapper>
-            <IncidentTitle title={incident.title} id={incident.id} />
-            <IncidentAddress>{incident.address}</IncidentAddress>
-            <IncidentTime>{new Date(incident.occurred_at).toDateString()}</IncidentTime>
-          </Wrapper>
-        )}
+        {incidentStatus.ok === 1 &&
+          incidentStatus.loading === false &&
+          Object.keys(incident).length > 0 && (
+            <Wrapper>
+              <IncidentTitle title={incident.title} id={incident.id} />
+              <IncidentAddress>{incident.address}</IncidentAddress>
+              <IncidentTime>{new Date(incident.occurred_at).toDateString()}</IncidentTime>
+            </Wrapper>
+          )}
         {incidentStatus.ok === 0 && incidentStatus.loading === false && (
           <span>{incidentStatus.err}</span>
         )}
       </>
     );
-
-    /* incidentStatus.loading ? (
-      <span>Loading</span>
-    ) : incidentStatus.ok === 1 && Object.keys(incident).length > 0 ? (
-      <Wrapper>
-        <IncidentTitle title={incident.title} id={incident.id} />
-        <IncidentAddress>{incident.address}</IncidentAddress>
-        <IncidentTime>{new Date(incident.occurred_at).toDateString()}</IncidentTime>
-      </Wrapper>
-    ) : (
-      <span>{incidentStatus.err}</span>
-    ); */
   }
 }
 

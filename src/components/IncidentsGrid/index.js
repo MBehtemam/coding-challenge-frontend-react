@@ -14,11 +14,10 @@ const Wrapper = styled.section`
 const Grid = ({ incidents, incidentsStatus }) => (
   <Wrapper>
     {incidentsStatus.loading && <span>Loading.....</span>}
-    {incidentsStatus.ok === 0 && incidentsStatus.loading === false && (
+    {incidentsStatus.ok === 0 && incidentsStatus.loading === false && incidents.length === 0 && (
       <span>{incidentsStatus.err}</span>
     )}
-    {incidentsStatus.loading === false &&
-      incidentsStatus.ok === 1 &&
+    {incidents.length > 0 &&
       incidents.map(incident => <Incident key={incident.id} incident={incident} />)}
   </Wrapper>
 );
