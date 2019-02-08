@@ -3,7 +3,11 @@ import { startLoading, stopLoading } from './loadingActions';
 import { incrementLastPageNumber } from './lastPageFetchNumberActions';
 import IncidentsUrlGenerator from '../Helpers/IncidentsUrlGenerator';
 import { INCIDENTS_CLEAR, INCIDENTS_ADD_BATCH } from '../Constants/ActionTypes';
-
+import {
+  incidentsFetchFail,
+  incidentsStartLoading,
+  incidentsStopLoading
+} from './incidentsStatusActions';
 /**
  * this action clear all incidents
  */
@@ -24,7 +28,7 @@ export const getIncidents = (page = 1) => {
   return (dispatch, getState) => {
     const { occurredAfter, occurredBefore, proximity, query, perPage } = getState();
     // start loading
-    dispatch(startLoading());
+    dispatch(incidentsStartLoading());
     IncidentsAPI.getIncidents(
       IncidentsUrlGenerator({
         page,
@@ -38,15 +42,18 @@ export const getIncidents = (page = 1) => {
     )
       .then(data => {
         // stop loading
-        dispatch(stopLoading());
+        dispatch(incidentsStopLoading());
         // increment or set lastFetchPage
         dispatch(incrementLastPageNumber());
         // adding bikes to list
-        // /TODO check for length of incidents
-        dispatch(addIncidents(data.incidents, page));
+        if (data.incidents.length === 0) {
+          dispatch(incidentsFetchFail('Nothing found'));
+        } else {
+          dispatch(addIncidents(data.incidents, page));
+        }
       })
       .catch(() => {
-        dispatch(stopLoading());
+        dispatch(incidentsFetchFail('Some error happen'));
       });
   };
 };

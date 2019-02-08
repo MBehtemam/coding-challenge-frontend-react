@@ -11,6 +11,7 @@ import query from './queryReducer';
 import locations from './locationsReducer';
 import incident from './incidentReducer';
 import incidentStatus from './incidentStatusReducer';
+import incidentsStatus from './incidentsStatusReducer';
 
 const reducers = combineReducers({
   incidents,
@@ -24,6 +25,7 @@ const reducers = combineReducers({
   locationsLoading,
   locations,
   incident,
-  incidentStatus
+  incidentStatus,
+  incidentsStatus
 });
 export default reducers;
