@@ -19,8 +19,6 @@ const Grid = ({ incidents, incidentsStatus }) => (
     {incidentsStatus.ok === 0 && incidentsStatus.loading === false && incidents.length === 0 && (
       <span>{incidentsStatus.err}</span>
     )}
-    {/* {incidents.length > 0 &&
-      incidents.map(incident => <Incident key={incident.id} incident={incident} />)} */}
     {incidents.length > 0 &&
       incidents.map(incident => (
         <Row key={incident.id}>
@@ -30,9 +28,12 @@ const Grid = ({ incidents, incidentsStatus }) => (
                 src={incident.media.image_url_thumb || BicyclePlaceholder}
                 style={{ width: '150px', height: '150px' }}
               />
-              <CardTitle>
-                <Link to={`/case/${incident.id}`}>{incident.title}</Link>
-              </CardTitle>
+              <Col>
+                <CardTitle>
+                  <Link to={`/case/${incident.id}`}>{incident.title}</Link>
+                </CardTitle>
+                <CardBody>{incident.description}</CardBody>
+              </Col>
             </Row>
           </Card>
         </Row>
