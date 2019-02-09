@@ -11,18 +11,19 @@ const CustomRow = styled(Row)`
 `;
 const Pagination = ({ pagesCount, pageId }) => (
   <CustomRow>
-    <Link to="/page/1">{`<<First`}</Link>
+    <Link to="/page/1">{`First`}</Link>
     <Link to={pageId > 1 ? `/page/${pageId - 1}` : `/page/1`}>Prev</Link>
     {pagesCount.map(page => (
       <Link key={page} selected={page === pageId} to={`/page/${page}`}>
         {page}
       </Link>
     ))}
-    <Link to={`/page/${pageId + 1}`}>Next</Link>
+    <Link to={`/page/${pagesCount.length === pageId ? pageId : pageId + 1}`}>Next</Link>
+    <Link to={`/page/${pagesCount.length}`}>Last</Link>
   </CustomRow>
 );
 const mapStateToProps = (state, ownProps) => ({
-  pagesCount: Array.from({ length: state.locations.length / state.perPage + 2 }, (v, k) => k + 1),
+  pagesCount: Array.from({ length: state.locations.length / state.perPage + 1 }, (v, k) => k + 1),
   pageId: parseInt(ownProps.match.params.page, 10)
 });
 
