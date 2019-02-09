@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Input from '../Layout/Input';
 import DatePicker from './components/DatePicker';
 import QueryInput from './components/QueryInput';
 import * as QueryActions from '../../logic/Actions/queryActions';
@@ -24,8 +25,17 @@ const SearchBar = ({
 }) => (
   <Row as="section" className={className}>
     <Column span={3}>
-      <QueryInput onBlur={e => setQuery(e.target.value)} defaultValue={query} />
+      <Input
+        type="text"
+        addOnBefore="Query"
+        onChange={e => setQuery(e)}
+        value={query}
+        defaultValue={query}
+      />
     </Column>
+    {/* <Column span={3}>
+      <QueryInput onBlur={e => setQuery(e.target.value)} defaultValue={query} />
+    </Column> */}
     <Column span={3}>
       <DatePicker date={occurredBefore} title="From" onChange={setOccurredBefore} />
     </Column>
@@ -40,7 +50,7 @@ const SearchBar = ({
 );
 
 const styledSearchBar = styled(SearchBar)`
-  height: 50px;
+  height: 80px;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;

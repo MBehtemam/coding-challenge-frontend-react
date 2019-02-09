@@ -14,8 +14,8 @@ const Button = styled.button`
     return '#ffffff';
   }};
   border: 0;
-  border-color: ${props => props.default && '#e0e0e1'};
-  color: #fff;
+  border-color: #e0e0e1;
+  color: #000000;
   cursor: pointer;
   font-size: 16px;
   line-height: 0;
