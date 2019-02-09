@@ -1,9 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import Incident from './Incident';
 import Col from '../Layout/Col';
+import Row from '../Layout/Row';
+import Column from '../Layout/Column';
+import Card from '../Card';
+import CardImage from '../Card/CardImage';
+import CardTitle from '../Card/CardTitle';
+import CardBody from '../Card/CardBody';
+import CardFooter from '../Card/CardFooter';
+import BicyclePlaceholder from '../../assets/bicycle-placeholder.png';
 
 const Grid = ({ incidents, incidentsStatus }) => (
   <Col>
@@ -11,8 +19,24 @@ const Grid = ({ incidents, incidentsStatus }) => (
     {incidentsStatus.ok === 0 && incidentsStatus.loading === false && incidents.length === 0 && (
       <span>{incidentsStatus.err}</span>
     )}
+    {/* {incidents.length > 0 &&
+      incidents.map(incident => <Incident key={incident.id} incident={incident} />)} */}
     {incidents.length > 0 &&
-      incidents.map(incident => <Incident key={incident.id} incident={incident} />)}
+      incidents.map(incident => (
+        <Row key={incident.id}>
+          <Card>
+            <Row>
+              <CardImage
+                src={incident.media.image_url_thumb || BicyclePlaceholder}
+                style={{ width: '150px', height: '150px' }}
+              />
+              <CardTitle>
+                <Link to={`/case/${incident.id}`}>{incident.title}</Link>
+              </CardTitle>
+            </Row>
+          </Card>
+        </Row>
+      ))}
   </Col>
 );
 const mapStateToProps = (state, ownProps) => ({

@@ -3,25 +3,25 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const Pagination = ({ incidents }) => (
+const Pagination = ({ pagesCount }) => (
   <section>
-    {incidents.map(incident => (
-      <Link key={incident} to={`/page/${incident}`}>
-        {incident}
+    {pagesCount.map(page => (
+      <Link key={page} to={`/page/${page}`}>
+        {page}
       </Link>
     ))}
   </section>
 );
 
 const mapStateToProps = state => ({
-  incidents: Array.from({ length: 23 / state.perPage + 2 }, (v, k) => k + 1)
+  pagesCount: Array.from({ length: state.locations.length / state.perPage + 2 }, (v, k) => k + 1)
 });
 
 Pagination.propTypes = {
-  incidents: PropTypes.instanceOf(Array)
+  pagesCount: PropTypes.instanceOf(Array)
 };
 Pagination.defaultProps = {
-  incidents: []
+  pagesCount: []
 };
 
 export default withRouter(

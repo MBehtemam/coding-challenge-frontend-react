@@ -1,5 +1,5 @@
 import { OCCURRED_AFTER_CLEAR, OCCURRED_AFTER_SET } from '../Constants/ActionTypes';
-import { clearOccurredAfter, setOccurredAfter } from './occuredAfterActions';
+import { clearOccurredAfter, setOccurredAfter } from './occurredAfterActions';
 
 describe('Test suits for occurredAfter actions', () => {
   it('should has correct type for clear occurred after', () => {

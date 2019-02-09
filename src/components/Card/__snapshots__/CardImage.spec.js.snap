@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test suits for Card Image should match with snapshot 1`] = `
+.c0 {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+<img
+  className="c0"
+/>
+`;
