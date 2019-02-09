@@ -12,9 +12,9 @@ const UrlGenerator = ({
     occurredBefore ? `&occurred_before=${occurredBefore}` : ''
   }${occurredAfter ? `&occurred_after=${occurredAfter}` : ''}${
     incidentType ? `&incident_type=${incidentType}` : ''
-  }${proximity ? `&proximity=${proximity}` : ''}${
+  }${proximity && proximity !== '' ? `&proximity=${proximity}` : ''}${
     proximitySquare ? `&proximity_square=${proximitySquare}` : ''
-  }${query ? `&query=${query}` : ''}`;
+  }${query && query !== '' ? `&query=${query}` : ''}`;
   return str;
 };
 export default UrlGenerator;

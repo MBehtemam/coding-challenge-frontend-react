@@ -22,12 +22,11 @@ const InputText = styled.input`
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   width: 90%;
 `;
-const Input = ({ onBlur, addOnBefore, onChange, value, defaultValue }) => (
+const Input = ({ onBlur, addOnBefore, onChange, defaultValue = '' }) => (
   <Row>
     <InputLabel>{addOnBefore}</InputLabel>
     <InputText
       defaultValue={defaultValue}
-      value={value}
       onBlur={e => onBlur(e.target.value)}
       onChange={e => onChange(e.target.value)}
     />
@@ -38,14 +37,12 @@ Input.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   addOnBefore: PropTypes.string,
-  defaultValue: PropTypes.string,
-  value: PropTypes.string
+  defaultValue: PropTypes.string
 };
 Input.defaultProps = {
   onChange: val => val,
   onBlur: val => val,
   addOnBefore: '',
-  defaultValue: '',
-  value: ''
+  defaultValue: ''
 };
 export default Input;

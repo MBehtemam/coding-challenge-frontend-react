@@ -13,11 +13,13 @@ const Pagination = ({ pagesCount, pageId }) => (
   <CustomRow>
     <Link to="/page/1">First</Link>
     <Link to={pageId > 1 ? `/page/${pageId - 1}` : `/page/1`}>Prev</Link>
-    {pagesCount.map(page => (
+    {pagesCount.length - 10 > 10 && <strong>{`  <<<<<  `}</strong>}
+    {pagesCount.slice(pageId - 1, pageId + 10).map(page => (
       <Link key={page} selected={page === pageId} to={`/page/${page}`}>
         {page}
       </Link>
     ))}
+    {pagesCount.length - pageId > 10 && <strong>{`  >>>>>  `}</strong>}
     <Link to={`/page/${pagesCount.length === pageId ? pageId : pageId + 1}`}>Next</Link>
     <Link to={`/page/${pagesCount.length}`}>Last</Link>
   </CustomRow>

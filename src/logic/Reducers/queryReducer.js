@@ -1,6 +1,6 @@
 import { QUERY_CLEAR, QUERY_SET } from '../Constants/ActionTypes';
 
-export const defaultState = null;
+export const defaultState = '';
 
 const queryReducer = (state = defaultState, action) => {
   switch (action.type) {

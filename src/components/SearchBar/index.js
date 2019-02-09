@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from '../Layout/Input';
 import DatePicker from './components/DatePicker';
-import QueryInput from './components/QueryInput';
 import * as QueryActions from '../../logic/Actions/queryActions';
+import * as ProximityActions from '../../logic/Actions/proximityActions';
 import * as OccurredBeforeActions from '../../logic/Actions/occurredBeforeActions';
 import * as OccurredAfterActions from '../../logic/Actions/occurredAfterActions';
 import Button from '../Button';
@@ -21,10 +21,12 @@ const SearchBar = ({
   setOccurredBefore,
   setOccurredAfter,
   occurredAfter,
-  fetchingAction
+  fetchAction,
+  proximity,
+  setProximity
 }) => (
   <Row as="section" className={className}>
-    <Column span={3}>
+    <Column span={4}>
       <Input
         type="text"
         addOnBefore="Query"
@@ -33,18 +35,24 @@ const SearchBar = ({
         defaultValue={query}
       />
     </Column>
-    {/* <Column span={3}>
-      <QueryInput onBlur={e => setQuery(e.target.value)} defaultValue={query} />
-    </Column> */}
+    <Column span={4}>
+      <Input
+        type="text"
+        addOnBefore="Proximity"
+        onChange={val => setProximity(val)}
+        value={proximity}
+        defaultValue={proximity}
+      />
+    </Column>
     <Column span={3}>
       <DatePicker date={occurredBefore} title="From" onChange={setOccurredBefore} />
     </Column>
     <Column span={3}>
       <DatePicker date={occurredAfter} title="To" onChange={setOccurredAfter} />
     </Column>
-    <Column span={3}>
+    <Column span={2}>
       <Button>Clear</Button>
-      <Button onClick={fetchingAction}>Apply</Button>
+      <Button onClick={fetchAction}>Apply</Button>
     </Column>
   </Row>
 );
@@ -60,13 +68,16 @@ const styledSearchBar = styled(SearchBar)`
 const mapStateToProps = state => ({
   query: state.query,
   occurredBefore: state.occurredBefore,
-  occurredAfter: state.occurredAfter
+  occurredAfter: state.occurredAfter,
+  proximity: state.proximity
 });
 const mapDispatchToProps = dispatch => ({
-  fetchingActions: () => dispatch(fetchingActions(true, 1)),
+  fetchAction: () => dispatch(fetchingActions(true, 1)),
   setQuery: query => dispatch(QueryActions.setQuery(query)),
   setOccurredBefore: time => dispatch(OccurredBeforeActions.setOccurredBefore(time)),
-  setOccurredAfter: time => dispatch(OccurredAfterActions.setOccurredAfter(time))
+  setOccurredAfter: time => dispatch(OccurredAfterActions.setOccurredAfter(time)),
+  setProximity: proximity => dispatch(ProximityActions.setProximity(proximity)),
+  clearProximity: () => dispatch(ProximityActions.clearProximity())
 });
 export default connect(
   mapStateToProps,
@@ -74,22 +85,26 @@ export default connect(
 )(styledSearchBar);
 
 SearchBar.propTypes = {
-  fetchingAction: PropTypes.func,
+  fetchAction: PropTypes.func,
   className: PropTypes.string,
   setQuery: PropTypes.func,
   query: PropTypes.string,
   occurredBefore: PropTypes.number,
   occurredAfter: PropTypes.number,
   setOccurredBefore: PropTypes.func,
-  setOccurredAfter: PropTypes.func
+  setOccurredAfter: PropTypes.func,
+  setProximity: PropTypes.func,
+  proximity: PropTypes.string
 };
 SearchBar.defaultProps = {
   query: '',
   className: '',
+  proximity: '',
   setQuery: QueryActions.setQuery,
   occurredBefore: 0,
   occurredAfter: 0,
   setOccurredBefore: OccurredBeforeActions.setOccurredBefore,
   setOccurredAfter: OccurredAfterActions.setOccurredAfter,
-  fetchingAction: fetchingActions
+  fetchAction: fetchingActions,
+  setProximity: ProximityActions.setProximity
 };
