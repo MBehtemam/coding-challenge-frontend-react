@@ -11,7 +11,7 @@ const CustomRow = styled(Row)`
 `;
 const Pagination = ({ pagesCount, pageId }) => (
   <CustomRow>
-    <Link to="/page/1">{`First`}</Link>
+    <Link to="/page/1">First</Link>
     <Link to={pageId > 1 ? `/page/${pageId - 1}` : `/page/1`}>Prev</Link>
     {pagesCount.map(page => (
       <Link key={page} selected={page === pageId} to={`/page/${page}`}>

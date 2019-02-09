@@ -2,17 +2,12 @@
 
 exports[`Test suits for Incident Title should match with snapshot 1`] = `
 .c0 {
-  color: blue;
+  color: rgb(48,48,48);
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
-<header
+<h1
   className="c0"
->
-  <a
-    href="/case/null"
-    onClick={[Function]}
-  >
-    
-  </a>
-</header>
+/>
 `;

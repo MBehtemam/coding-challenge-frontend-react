@@ -1,25 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
-const Title = styled.header`
-  color: blue;
+const Title = styled.h1`
+  color: rgb(48, 48, 48);
+  font-size: 2rem;
+  margin-bottom: 10px;
 `;
 
-const IncidentTitle = ({ title, id }) => (
-  <Title>
-    <Link to={`/case/${id}`}>{title}</Link>
-  </Title>
-);
-
-export default IncidentTitle;
-
-IncidentTitle.propTypes = {
-  title: PropTypes.string,
-  id: PropTypes.number
-};
-IncidentTitle.defaultProps = {
-  title: '',
-  id: null
-};
+export default Title;

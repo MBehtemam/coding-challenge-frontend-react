@@ -2,7 +2,10 @@
 
 exports[`Test suits for Incident Description should match with snapshot 1`] = `
 .c0 {
-  color: green;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 2px;
 }
 
 <p

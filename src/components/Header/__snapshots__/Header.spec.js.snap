@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Test suits for Header Component should match with snapshot 1`] = `
-.c1 {
+.c2 {
   height: 100px;
   width: 100px;
 }
 
-.c2 {
+.c3 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -20,14 +20,24 @@ exports[`Test suits for Header Component should match with snapshot 1`] = `
   flex-direction: column;
 }
 
-.c3 {
+.c4 {
   color: white;
   font-size: 2rem;
 }
 
-.c4 {
+.c5 {
   color: white;
   font-size: 1.5rem;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .c0 {
@@ -35,32 +45,34 @@ exports[`Test suits for Header Component should match with snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: rgb(219,112,147);
-  color: white;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  min-height: 90px;
+  background-color: #282828;
+  color: black;
+  min-height: 60px;
+  margin-bottom: 10px;
 }
 
 <header
-  className="c0"
+  className="c0 c1"
 >
-  <img
-    className="c1"
-    src="logo.jpg"
-  />
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    <img
+      className="c2"
+      src="logo.jpg"
+    />
+  </a>
   <div
-    className="c2"
+    className="c3"
   >
     <h1
-      className="c3"
+      className="c4"
     >
-      Something
+      Police Department of Berlin
     </h1>
     <h3
-      className="c4"
+      className="c5"
     >
       Stolen bykes
     </h3>

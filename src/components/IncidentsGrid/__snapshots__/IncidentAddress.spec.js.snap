@@ -2,7 +2,7 @@
 
 exports[`Test suits for Incidetn Address should match with snapshot 1`] = `
 .c0 {
-  color: blue;
+  font-style: italic;
 }
 
 <address

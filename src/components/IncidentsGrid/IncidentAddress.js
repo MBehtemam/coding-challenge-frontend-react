@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const IncidentAddress = styled.address`
-  color: blue;
+  font-style: italic;
 `;
 
 export default IncidentAddress;

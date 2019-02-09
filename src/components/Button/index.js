@@ -2,23 +2,19 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   background-color: ${props => {
-    if (props.default) {
+    if (props.btnStyle === 'default') {
       return '#f4f4f4';
     }
-    if (props.primary) {
+    if (props.btnStyle === 'primary') {
       return '#523ee8';
     }
-    if (props.danger) {
+    if (props.btnStyle === `danger`) {
       return `rgb(247, 56, 89)`;
     }
+    return '#ffffff';
   }};
   border: 0;
-
-  border-color: ${props => {
-    if (props.default) {
-      return '#e0e0e1';
-    }
-  }};
+  border-color: ${props => props.default && '#e0e0e1'};
   color: #fff;
   cursor: pointer;
   font-size: 16px;
