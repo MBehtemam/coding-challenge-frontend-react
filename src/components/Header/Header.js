@@ -1,27 +1,36 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import Brand from './Brand';
 import BrandTitle from './BrandTitle';
 import BrandSubtitle from './BrandSubtitle';
 import LogoImage from '../../assets/logo.jpg';
+import Row from '../Layout/Row';
 
-const Wrapper = styled.header`
-  align-items: center;
-  background-color: rgb(219, 112, 147);
-  color: white;
-  display: flex;
-  min-height: 90px;
-`;
-
-const Header = () => (
-  <Wrapper>
-    <Logo src={LogoImage} />
+const Header = ({ className }) => (
+  <Row as="header" className={className}>
+    <Link to="/">
+      <Logo src={LogoImage} />
+    </Link>
     <Brand>
-      <BrandTitle>Something</BrandTitle>
+      <BrandTitle>Police Department of Berlin</BrandTitle>
       <BrandSubtitle>Stolen bykes</BrandSubtitle>
     </Brand>
-  </Wrapper>
+  </Row>
 );
 
-export default Header;
+Header.propTypes = {
+  className: PropTypes.string
+};
+Header.defaultProps = {
+  className: ''
+};
+
+export default styled(Header)`
+  align-items: center;
+  background-color: #282828;
+  color: black;
+  min-height: 60px;
+`;

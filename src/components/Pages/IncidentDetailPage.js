@@ -7,6 +7,7 @@ import * as IncidentActions from '../../logic/Actions/incidentActions';
 import IncidentTitle from '../IncidentsGrid/IncidentTitle';
 import IncidentAddress from '../IncidentsGrid/IncidentAddress';
 import IncidentTime from '../IncidentsGrid/IncidentTime';
+import IncidentMap from '../IncidentDetail/IncidentMap';
 
 const Wrapper = styled.section`
   display: flex;
@@ -40,6 +41,12 @@ class IncidentDetailPage extends Component {
         {incidentStatus.ok === 0 && incidentStatus.loading === false && (
           <span>{incidentStatus.err}</span>
         )}
+        <IncidentMap
+          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+          loadingElement={<div style={{ height: `100%` }} />}
+          containerElement={<div style={{ height: `400px` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        />
       </>
     );
   }

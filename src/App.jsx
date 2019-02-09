@@ -8,7 +8,6 @@ import Layout from './components/Layout';
 const App = () => (
   <Provider store={Store}>
     <Layout>
-      <Header />
       <Routes />
     </Layout>
   </Provider>

@@ -7,6 +7,7 @@ import IncidentsGrid from '../IncidentsGrid';
 import FetchResults from '../../logic/Actions/fetchingActions';
 import Total from '../Total';
 import Pagination from '../Pagination';
+import Header from '../Header/Header';
 
 class IndexPage extends Component {
   componentDidMount() {
@@ -39,6 +40,7 @@ class IndexPage extends Component {
   render() {
     return (
       <Fragment>
+        <Header />
         <SearchBar />
         <Total />
         <IncidentsGrid />
