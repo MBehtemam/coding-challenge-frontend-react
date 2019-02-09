@@ -1,27 +1,38 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import Row from '../Layout/Row';
+import Link from './Link.styled';
 
-const Pagination = ({ pagesCount }) => (
-  <section>
+const CustomRow = styled(Row)`
+  justify-content: center;
+`;
+const Pagination = ({ pagesCount, pageId }) => (
+  <CustomRow>
+    <Link to="/page/1">{`<<First`}</Link>
+    <Link to={pageId > 1 ? `/page/${pageId - 1}` : `/page/1`}>Prev</Link>
     {pagesCount.map(page => (
-      <Link key={page} to={`/page/${page}`}>
+      <Link key={page} selected={page === pageId} to={`/page/${page}`}>
         {page}
       </Link>
     ))}
-  </section>
+    <Link to={`/page/${pageId + 1}`}>Next</Link>
+  </CustomRow>
 );
-
-const mapStateToProps = state => ({
-  pagesCount: Array.from({ length: state.locations.length / state.perPage + 2 }, (v, k) => k + 1)
+const mapStateToProps = (state, ownProps) => ({
+  pagesCount: Array.from({ length: state.locations.length / state.perPage + 2 }, (v, k) => k + 1),
+  pageId: parseInt(ownProps.match.params.page, 10)
 });
 
 Pagination.propTypes = {
-  pagesCount: PropTypes.instanceOf(Array)
+  pagesCount: PropTypes.instanceOf(Array),
+  pageId: PropTypes.number
 };
 Pagination.defaultProps = {
-  pagesCount: []
+  pagesCount: [],
+  pageId: 0
 };
 
 export default withRouter(
