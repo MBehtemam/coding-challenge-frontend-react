@@ -1,24 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Incident from './Incident';
-
-const Wrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-`;
+import Col from '../Layout/Col';
 
 const Grid = ({ incidents, incidentsStatus }) => (
-  <Wrapper>
+  <Col>
     {incidentsStatus.loading && <span>Loading.....</span>}
     {incidentsStatus.ok === 0 && incidentsStatus.loading === false && incidents.length === 0 && (
       <span>{incidentsStatus.err}</span>
     )}
     {incidents.length > 0 &&
       incidents.map(incident => <Incident key={incident.id} incident={incident} />)}
-  </Wrapper>
+  </Col>
 );
 const mapStateToProps = (state, ownProps) => ({
   incidents:
