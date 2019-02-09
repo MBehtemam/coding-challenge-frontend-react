@@ -1,7 +1,7 @@
 import {
   INCIDENTS_FETCH_FAIL,
   INCIDENTS_LOADING_START,
-  INCIDENTS_LOADING_STOPT
+  INCIDENTS_LOADING_STOP
 } from '../Constants/ActionTypes';
 import incidentsStatusReducer, { defaultState } from './incidentsStatusReducer';
 
@@ -14,7 +14,7 @@ describe('Test suits for incidents status', () => {
       ...defaultState,
       loading: false
     };
-    expect(incidentsStatusReducer(undefined, { type: INCIDENTS_LOADING_STOPT })).toEqual(expected);
+    expect(incidentsStatusReducer(undefined, { type: INCIDENTS_LOADING_STOP })).toEqual(expected);
   });
   it('should has loading true when it is started', () => {
     const expected = {

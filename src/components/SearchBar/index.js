@@ -8,7 +8,7 @@ import * as QueryActions from '../../logic/Actions/queryActions';
 import * as OccurredBeforeActions from '../../logic/Actions/occuredBeforeActions';
 import * as OccurredAfterActions from '../../logic/Actions/occuredAfterActions';
 import Button from '../Button';
-import fetchingActions from '../../logic/Actions/fetchingActions'
+import fetchingActions from '../../logic/Actions/fetchingActions';
 
 const Wrapper = styled.section`
   display: flex;
@@ -21,23 +21,23 @@ const SearchBar = ({
   setOccurredBefore,
   setOccurredAfter,
   occurredAfter,
-  fetchingActions
+  fetchingAction
 }) => (
   <Wrapper>
     <QueryInput onBlur={e => setQuery(e.target.value)} defaultValue={query} />
     <DatePicker date={occurredBefore} title="From" onChange={setOccurredBefore} />
     <DatePicker date={occurredAfter} title="To" onChange={setOccurredAfter} />
     <Button>Clear</Button>
-    <Button onClick={fetchingActions}>Apply</Button>
+    <Button onClick={fetchingAction}>Apply</Button>
   </Wrapper>
 );
 const mapStateToProps = state => ({
   query: state.query,
   occurredBefore: state.occurredBefore,
-  occurredAfter:state.occurredAfter
+  occurredAfter: state.occurredAfter
 });
 const mapDispatchToProps = dispatch => ({
-  fetchingActions:()=>dispatch(fetchingActions(true,1)),
+  fetchingActions: () => dispatch(fetchingActions(true, 1)),
   setQuery: query => dispatch(QueryActions.setQuery(query)),
   setOccurredBefore: time => dispatch(OccurredBeforeActions.setOccurredBefore(time)),
   setOccurredAfter: time => dispatch(OccurredAfterActions.setOccurredAfter(time))
@@ -48,7 +48,7 @@ export default connect(
 )(SearchBar);
 
 SearchBar.propTypes = {
-  fetchingActions:PropTypes.func,
+  fetchingAction: PropTypes.func,
   setQuery: PropTypes.func,
   query: PropTypes.string,
   occurredBefore: PropTypes.number,
@@ -63,5 +63,5 @@ SearchBar.defaultProps = {
   occurredAfter: 0,
   setOccurredBefore: OccurredBeforeActions.setOccurredBefore,
   setOccurredAfter: OccurredAfterActions.setOccurredAfter,
-  fetchingActions:fetchingActions
+  fetchingAction: fetchingActions
 };

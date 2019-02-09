@@ -1,5 +1,4 @@
 import IncidentsAPI from '../API/IncidentsAPI';
-import { startLoading, stopLoading } from './loadingActions';
 import { incrementLastPageNumber } from './lastPageFetchNumberActions';
 import IncidentsUrlGenerator from '../Helpers/IncidentsUrlGenerator';
 import { INCIDENTS_CLEAR, INCIDENTS_ADD_BATCH } from '../Constants/ActionTypes';

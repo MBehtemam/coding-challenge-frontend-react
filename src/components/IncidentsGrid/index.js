@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Incident from './Incident';
-import incidentsStatus from '../../logic/Reducers/incidentStatusReducer';
 
 const Wrapper = styled.section`
   display: flex;

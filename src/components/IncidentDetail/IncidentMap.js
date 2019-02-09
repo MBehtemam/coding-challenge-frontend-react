@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
+import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
 
 const Map = ReactMapboxGl({
   accessToken:
@@ -7,6 +7,7 @@ const Map = ReactMapboxGl({
 });
 const IncidentMap = () => (
   <Map
+    // eslint-disable-next-line
     style="mapbox://styles/mapbox/streets-v9"
     containerStyle={{
       height: '50vh',
