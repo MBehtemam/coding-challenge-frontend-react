@@ -1,4 +1,5 @@
 export const defaultState = [
+  '',
   'crash',
   'hazard',
   'theft',
