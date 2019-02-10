@@ -6,7 +6,7 @@ import * as IncidentActions from '../../logic/Actions/incidentActions';
 import IncidentTitle from '../IncidentsGrid/IncidentTitle';
 import IncidentAddress from '../IncidentsGrid/IncidentAddress';
 import IncidentTime from '../IncidentsGrid/IncidentTime';
-import IncidentMap from '../IncidentDetail/IncidentMap';
+import IncidentMap from '../Maps/IncidentMap';
 import IncidentDescription from '../IncidentsGrid/IncidentDescription';
 import Header from '../Header/Header';
 import Row from '../Layout/Row';
