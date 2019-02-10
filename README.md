@@ -4,6 +4,7 @@
 # Stolen Bike Index - JOIN Coding Challenge - Frontend (React)
 
 ![JOIN Stolen Bike Cases](https://github.com/join-com/coding-challenge-frontend-react/raw/master/illustration.png)
+[Demo](https://join-react-frontend-code.herokuapp.com)
 
 ## Context
 
