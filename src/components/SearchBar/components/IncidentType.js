@@ -50,7 +50,7 @@ const mapStateToProps = state => ({
   incidentType: state.incidentType
 });
 const mapDispatchToProps = dispatch => ({
-  setIncidentType: type => IncidentTypeActions.setIncidentType(type)
+  setIncidentType: type => dispatch(IncidentTypeActions.setIncidentType(type))
 });
 export default connect(
   mapStateToProps,

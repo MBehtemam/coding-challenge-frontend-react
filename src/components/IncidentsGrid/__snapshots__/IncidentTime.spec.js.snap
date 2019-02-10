@@ -3,7 +3,6 @@
 exports[`Test suits for Incident Time Should match to snapshot 1`] = `
 .c0 {
   font-family: monospace;
-  padding: 0px 15px;
 }
 
 <time

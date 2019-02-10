@@ -32,8 +32,9 @@ class IncidentDetailPage extends Component {
         {incidentStatus.ok === 0 && incidentStatus.loading === false && (
           <span>{incidentStatus.err}</span>
         )}
-        <span style={{textAlign:'center'}}><BeatLoader loading={incidentStatus.loading} 
-          color={'#36D7B7'} size={25}/></span>
+        <span style={{ textAlign: 'center' }}>
+          <BeatLoader loading={incidentStatus.loading} color="#36D7B7" size={25} />
+        </span>
         {incidentStatus.ok === 1 &&
           incidentStatus.loading === false &&
           Object.keys(incident).length > 0 && (

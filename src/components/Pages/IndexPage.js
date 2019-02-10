@@ -48,6 +48,7 @@ class IndexPage extends Component {
         <Row>
           <HeatMap />
         </Row>
+        <Pagination />
         <IncidentsGrid />
         <Pagination />
       </Fragment>
