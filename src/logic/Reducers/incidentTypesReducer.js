@@ -7,5 +7,5 @@ export const defaultState = [
   'infrastructure_issue',
   'chop_shop'
 ];
-const incidentsTypeReducer = (state = defaultState, action) => defaultState;
+const incidentsTypeReducer = (state = defaultState) => state;
 export default incidentsTypeReducer;

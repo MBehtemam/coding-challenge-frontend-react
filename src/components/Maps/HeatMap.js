@@ -51,8 +51,8 @@ const HeatMap = ({ locations }) => (
     center={locations.length > 0 ? locations[0] : [0, 0]}
   >
     <Layer type="heatmap" paint={layerPaint}>
-      {locations.map((location, index) => (
-        <Feature key={index} coordinates={location} />
+      {locations.map(location => (
+        <Feature key={`${location[1]}-${location[0]}`} coordinates={location} />
       ))}
     </Layer>
   </Map>
@@ -62,6 +62,12 @@ const mapStateToProps = state => ({
   locations: state.locations.map(l => l.geometry.coordinates)
 });
 
+HeatMap.propTypes = {
+  locations: PropTypes.instanceOf(Array)
+};
+HeatMap.defaultProps = {
+  locations: []
+};
 export default connect(
   mapStateToProps,
   undefined
