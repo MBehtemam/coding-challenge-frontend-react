@@ -1,6 +1,6 @@
 import { PROXIMITY_CLEAR, PROXIMITY_SET } from '../Constants/ActionTypes';
 
-export const defaultState = 'London';
+export const defaultState = 'Berlin';
 
 const proximityReducer = (state = defaultState, action) => {
   switch (action.type) {

@@ -8,6 +8,8 @@ import FetchResults from '../../logic/Actions/fetchingActions';
 import Total from '../Total';
 import Pagination from '../Pagination';
 import Header from '../Header/Header';
+import Row from '../Layout/Row'
+import HeatMap from '../Maps/HeatMap'
 
 class IndexPage extends Component {
   componentDidMount() {
@@ -43,6 +45,9 @@ class IndexPage extends Component {
         <Header />
         <SearchBar />
         <Total />
+        <Row>
+          <HeatMap/>
+        </Row>
         <IncidentsGrid />
         <Pagination />
       </Fragment>
