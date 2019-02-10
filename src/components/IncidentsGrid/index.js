@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
+import { BeatLoader } from 'react-spinners';
 import Col from '../Layout/Col';
 import Row from '../Layout/Row';
 import Card from '../Card';
@@ -12,7 +13,8 @@ import BicyclePlaceholder from '../../assets/bicycle-placeholder.png';
 
 const Grid = ({ incidents, incidentsStatus }) => (
   <Col>
-    {incidentsStatus.loading && <span>Loading.....</span>}
+  <span style={{textAlign:'center'}}><BeatLoader loading={incidentsStatus.loading} 
+          color={'#36D7B7'} size={25}/></span>
     {incidentsStatus.ok === 0 && incidentsStatus.loading === false && incidents.length === 0 && (
       <span>{incidentsStatus.err}</span>
     )}

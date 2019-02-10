@@ -12,6 +12,7 @@ import incident from './incidentReducer';
 import incidentStatus from './incidentStatusReducer';
 import incidentsStatus from './incidentsStatusReducer';
 import incidentTypes from './incidentTypesReducer';
+import incidentType from './incidentTypeReducer';
 
 const reducers = combineReducers({
   incidents,
@@ -26,6 +27,7 @@ const reducers = combineReducers({
   incident,
   incidentStatus,
   incidentsStatus,
-  incidentTypes
+  incidentTypes,
+  incidentType
 });
 export default reducers;

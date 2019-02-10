@@ -30,7 +30,7 @@ Header.defaultProps = {
 
 export default styled(Header)`
   align-items: center;
-  background-color: #282828;
+  background-color: #563d7c;
   color: black;
   min-height: 60px;
 `;

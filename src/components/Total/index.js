@@ -12,6 +12,11 @@ const Total = ({ className, incidentsCount }) => (
 const TotalIncident = styled(Total)`
   justify-content: flex-end;
   font-size: 1.5rem;
+  background: #6c757d;
+  color: #ffc107;
+  padding-right: 10px;
+  font-weight: bold;
+  font-family: sans-serif;
 `;
 Total.propTypes = {
   incidentsCount: PropTypes.number,

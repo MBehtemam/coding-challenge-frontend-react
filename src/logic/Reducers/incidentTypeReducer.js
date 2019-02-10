@@ -1,6 +1,6 @@
 import { INCIDENT_TYPE_CLEAR, INCIDENT_TYPE_SET } from '../Constants/ActionTypes';
 
-export const defaultState = '';
+export const defaultState = 'theft';
 
 const incidentTypeReducer = (state = defaultState, action) => {
   switch (action.type) {

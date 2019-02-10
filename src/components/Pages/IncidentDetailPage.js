@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { BeatLoader } from 'react-spinners';
 import * as IncidentActions from '../../logic/Actions/incidentActions';
 import IncidentTitle from '../IncidentsGrid/IncidentTitle';
 import IncidentAddress from '../IncidentsGrid/IncidentAddress';
@@ -31,7 +32,8 @@ class IncidentDetailPage extends Component {
         {incidentStatus.ok === 0 && incidentStatus.loading === false && (
           <span>{incidentStatus.err}</span>
         )}
-        {incidentStatus.loading && <span>Loading</span>}
+        <span style={{textAlign:'center'}}><BeatLoader loading={incidentStatus.loading} 
+          color={'#36D7B7'} size={25}/></span>
         {incidentStatus.ok === 1 &&
           incidentStatus.loading === false &&
           Object.keys(incident).length > 0 && (
